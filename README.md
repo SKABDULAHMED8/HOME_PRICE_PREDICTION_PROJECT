@@ -95,3 +95,60 @@ python server.py
 ```
 
 With the correct structure and files in place, your Flask server should start without issues, and you should be able to access the `index.html` template by navigating to `http://127.0.0.1:5000` in your web browser.
+
+
+```markdown
+# Bengaluru House Price Prediction Project
+
+## Project Structure
+
+Here’s an overview of the project structure:
+
+![Project Structure](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/project.bhp.structure.PNG)
+
+## Running the Server
+
+To run the server, use the following command:
+
+```bash
+python server.py
+```
+
+![Running Server Command](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cmd_run_server_bhp_1.PNG)
+
+## Server Running Confirmation
+
+You should see an output similar to this:
+
+![Server Running Output](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cmd_run_server_bhp_1.PNG)
+
+## User Interface
+
+### Home Page
+
+This is what the home page looks like:
+
+![Home Page UI](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/Capture_webpage_ui.PNG)
+
+### Blog UI
+
+Here's the blog UI capture:
+
+![Blog UI](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/Capture_webpage_blogui.PNG)
+
+### About Page
+
+This is the about page:
+
+![About Page](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cpture_about_ui.PNG)
+
+## Data
+
+The project uses data from Bengaluru. The dataset is available in `Bengaluru_House_Data.zip`.
+
+## Usage
+
+1. Unzip `Bengaluru_House_Data.zip`.
+2. Run `server.py` to start the server.
+3. Open your browser and navigate to `http://localhost:5000`.
+```
