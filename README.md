@@ -1,38 +1,54 @@
+```markdown
+# 🏠 Bengaluru House Price Prediction Project
 
-### Project Directory Structure
+A machine learning web application that predicts house prices in Bengaluru based on location, BHK, square footage, and bathrooms using a trained model and Flask.
+
+---
+
+## 📁 Project Directory Structure
+
+```
 BHP/
 │
-├── client/                        # (Optional) Could be ignored if not in use
+├── client/                        # (Optional) Web UI if used separately
 │
-├── model/                         # Jupyter and model training files
-│   ├── Bengaluru_House_Data.csv   # Dataset used for training
-│   ├── Bengaluru_House_Data_csv.ipynb  # Notebook for preprocessing and model building
-│   ├── columns.json               # JSON containing the features used by model
-│   └── banglore_home_prices_model.pickle  # Trained model file
+├── model/                         # Model training and dataset
+│   ├── Bengaluru_House_Data.csv
+│   ├── Bengaluru_House_Data_csv.ipynb
+│   ├── columns.json
+│   └── banglore_home_prices_model.pickle
 │
 ├── server/
-│   ├── server.py                  # Main Flask server file
-│   ├── util.py                    # Utility functions: prediction logic, loading model
-│   ├── artifacts/                 # Duplicate of model and columns.json (used by server)
+│   ├── server.py
+│   ├── util.py
+│   ├── artifacts/
 │   │   ├── banglore_home_prices_model.pickle
 │   │   └── columns.json
-│   ├── static/                    # CSS & JS files
+│   ├── static/
 │   │   ├── style.css
 │   │   └── script.js
-│   ├── templates/                # HTML files
+│   ├── templates/
 │   │   └── index.html
-│   └── __pycache__/              # Auto-generated Python cache (can ignore)
+│   └── __pycache__/
 │
-└── README.txt.txt                # (Optional) Notes or instructions
+└── README.txt.txt
+```
 
+📸 *Visual Structure:*
 
-### Ensure `server.py` in `BHP/server` is configured properly
+![Project Structure](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/project.bhp.structure.PNG)
+
+---
+
+## ⚙️ Server Configuration: `server.py`
+
+Ensure your `server.py` (inside `BHP/server/`) is configured properly:
 
 ```python
 from flask import Flask, request, jsonify, render_template
 import util
 
-app = Flask(__name__, template_folder='../artifacts/templates')
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def home():
@@ -49,7 +65,6 @@ def predict_home_price():
         'estimated_price': util.get_estimated_price(location, total_sqft, bhk, bath)
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
-    
     return response
 
 if __name__ == "__main__":
@@ -58,10 +73,13 @@ if __name__ == "__main__":
     app.run()
 ```
 
-### Verify the presence of `index.html`
-Ensure that the `index.html` file exists in the `BHP/artifacts/templates` directory.
+✅ Ensure the model and `columns.json` are correctly located under `server/artifacts`.
 
-### Example content of `index.html`
+---
+
+## 🧾 Sample `index.html`
+
+Place this file under `server/templates/index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -90,68 +108,62 @@ Ensure that the `index.html` file exists in the `BHP/artifacts/templates` direct
 </html>
 ```
 
-### Running the Flask server
-Ensure you're in the `server` directory and run the server using:
+---
 
-```sh
-python server.py
+## 🚀 How to Run the Server
+
+1. Go to the `server/` directory:
+```bash
+cd server
 ```
 
-With the correct structure and files in place, your Flask server should start without issues, and you should be able to access the `index.html` template by navigating to `http://127.0.0.1:5000` in your web browser.
-
-
-```markdown
-# Bengaluru House Price Prediction Project
-
-## Project Structure
-
-Here’s an overview of the project structure:
-
-![Project Structure](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/project.bhp.structure.PNG)
-
-## Running the Server
-
-To run the server, use the following command:
-
+2. Run the server:
 ```bash
 python server.py
 ```
 
+💡 Output Example:
 ![Running Server Command](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cmd_run_server_bhp_1.PNG)
 
-## Server Running Confirmation
+---
 
-You should see an output similar to this:
+## 🌐 Web UI
 
-![Server Running Output](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cmd_run_server_bhp_1.PNG)
+🔗 Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-## User Interface
-
-### Home Page
-
-This is what the home page looks like:
-
+### 🏠 Home Page
 ![Home Page UI](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/Capture_webpage_ui.PNG)
 
-### Blog UI
-
-Here's the blog UI capture:
-
+### 📝 Blog Page
 ![Blog UI](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/Capture_webpage_blogui.PNG)
 
-### About Page
-
-This is the about page:
-
+### 👤 About Page
 ![About Page](https://github.com/SKABDULAHMED8/HOME_PRICE_PREDICTION_PROJECT/blob/main/cpture_about_ui.PNG)
 
-## Data
+---
 
-The project uses data from Bengaluru. The dataset is available in `Bengaluru_House_Data.zip`.
+## 📊 Dataset
 
-## Usage
+- 📄 Filename: `Bengaluru_House_Data.csv`
+- 📦 Zip: `Bengaluru_House_Data.zip` *(Extract before training)*
 
-1. Unzip `Bengaluru_House_Data.zip`.
-2. Run `server.py` to start the server.
-3. Open your browser and navigate to `http://localhost:5000`.
+---
+
+## 💡 Usage Steps
+
+1. Unzip the dataset.
+2. Ensure all paths are set correctly.
+3. Run the server (`python server.py`).
+4. Open your browser and visit `http://localhost:5000`.
+
+---
+
+## 👨‍💻 Developer Info
+
+- ✍️ Shaik Abdul Ahmed  
+- 🌐 [GitHub](https://github.com/SKABDULAHMED8) | [LinkedIn](https://www.linkedin.com/in/abdul-ahmed-shaik-61447a257)
+
+---
+
+⭐ **Star the repository** if you found this helpful!
 ```
