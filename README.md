@@ -1,27 +1,30 @@
 
 ### Project Directory Structure
-```
-BHP
+BHP/
 │
-├── client
-│   └── (empty)
+├── client/                        # (Optional) Could be ignored if not in use
 │
-├── model
-│   ├── banglore_home_prices_model.pickle
-│   ├── Bengaluru_House_Data.csv
-│   ├── Bengaluru_House_Data_csv.ipynb
-│   └── columns.json
+├── model/                         # Jupyter and model training files
+│   ├── Bengaluru_House_Data.csv   # Dataset used for training
+│   ├── Bengaluru_House_Data_csv.ipynb  # Notebook for preprocessing and model building
+│   ├── columns.json               # JSON containing the features used by model
+│   └── banglore_home_prices_model.pickle  # Trained model file
 │
-├── server
-│   ├── server.py
-│   └── util.py
+├── server/
+│   ├── server.py                  # Main Flask server file
+│   ├── util.py                    # Utility functions: prediction logic, loading model
+│   ├── artifacts/                 # Duplicate of model and columns.json (used by server)
+│   │   ├── banglore_home_prices_model.pickle
+│   │   └── columns.json
+│   ├── static/                    # CSS & JS files
+│   │   ├── style.css
+│   │   └── script.js
+│   ├── templates/                # HTML files
+│   │   └── index.html
+│   └── __pycache__/              # Auto-generated Python cache (can ignore)
 │
-└── artifacts
-    ├── banglore_home_prices_model.pickle
-    ├── columns.json
-    └── templates
-        └── index.html
-```
+└── README.txt.txt                # (Optional) Notes or instructions
+
 
 ### Ensure `server.py` in `BHP/server` is configured properly
 
